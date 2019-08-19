@@ -56,6 +56,7 @@ cc_library(
         "//modules/canbus/vehicle/transit:transit_vehicle_factory",
         "//modules/canbus/vehicle/wey:wey_vehicle_factory",
         "//modules/canbus/vehicle/zhongyun:zhongyun_vehicle_factory",
+        "//modules/canbus/vehicle/hyundai_santa_fe:hyundai_santa_fe_vehicle_factory",
         "//modules/common/util:factory",
     ],
 )

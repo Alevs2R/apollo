@@ -24,6 +24,7 @@
 #include "modules/canbus/vehicle/transit/transit_vehicle_factory.h"
 #include "modules/canbus/vehicle/wey/wey_vehicle_factory.h"
 #include "modules/canbus/vehicle/zhongyun/zhongyun_vehicle_factory.h"
+#include "modules/canbus/vehicle/hyundai_santa_fe/hyundai_santa_fe_vehicle_factory.h"
 
 namespace apollo {
 namespace canbus {
@@ -31,6 +32,9 @@ namespace canbus {
 void VehicleFactory::RegisterVehicleFactory() {
   Register(apollo::common::LINCOLN_MKZ, []() -> AbstractVehicleFactory * {
     return new LincolnVehicleFactory();
+  });
+  Register(apollo::common::HYUNDAI_SANTA_FE, []() -> AbstractVehicleFactory * {
+    return new HyundaiSantaFeVehicleFactory();
   });
   Register(apollo::common::GEM, []() -> AbstractVehicleFactory * {
     return new GemVehicleFactory();
