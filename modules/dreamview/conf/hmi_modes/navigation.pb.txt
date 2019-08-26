@@ -110,8 +110,9 @@ monitored_components {
     # We also have a special GPSMonitor to check message status.
   }
 }
+
 monitored_components {
-  key: "ESD-CAN"
+  key: "SocketCAN"
   value: {
     # Special EsdCanMonitor.
   }
