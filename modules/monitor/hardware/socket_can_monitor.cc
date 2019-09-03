@@ -24,6 +24,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <string>
+#include <cstdlib>
 
 #include "cyber/common/file.h"
 #include "cyber/common/log.h"
@@ -41,6 +42,8 @@ DEFINE_string(socket_can_component_name, "SocketCAN",
 namespace apollo {
 namespace monitor {
 namespace {
+
+bool kvaser_in = false;
 
 // Test Socket CAN on an open handler.
 bool SocketCanHandlerTest(const int dev_handler, std::string* message) {
@@ -122,6 +125,14 @@ void SocketCanMonitor::RunOnce(const double current_time) {
   const bool ret = SocketCanTest(&message);
   SummaryMonitor::EscalateStatus(
       ret ? ComponentStatus::OK : ComponentStatus::ERROR, message, status);
+      // ret ? AINFO << "OK" : AINFO << "ERROR";
+        if (ret && !kvaser_in) {
+          system("sudo ip link set can0 type can bitrate 500000");
+          system("sudo ip link set up can0");
+          kvaser_in = true;
+        }
+        if (!ret)
+          kvaser_in = false;
 }
 
 }  // namespace monitor

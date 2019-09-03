@@ -114,6 +114,6 @@ monitored_components {
 monitored_components {
   key: "SocketCAN"
   value: {
-    # Special EsdCanMonitor.
+    # Special SocketCanMonitor.
   }
 }
