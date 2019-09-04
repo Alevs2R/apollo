@@ -1,0 +1,6 @@
+name : "hyundai_santa_fe"
+brand : HYUNDAI_SANTA_FE
+model : SANTA FE
+vehicle_id {
+    vin : "<VIN>"
+}
