@@ -312,7 +312,7 @@ void CanSender<SensorType>::PowerSendThreadFunc() {
     delta_period = new_delta_period;
     tm_end =
         common::time::AsInt64<common::time::micros>(common::time::Clock::Now());
-    sleep_interval = delta_period - (tm_end - tm_start);
+    sleep_interval = (delta_period - (tm_end - tm_start)) * 2;  // time sleep for Hyundai Santa Fe CAN bus 20 ms
 
     if (sleep_interval > 0) {
       std::this_thread::sleep_for(std::chrono::microseconds(sleep_interval));
