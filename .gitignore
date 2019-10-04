@@ -89,3 +89,6 @@ docs/demo_guide/*.bag
 
 # Logs
 cyber/log/*
+
+# params file
+modules/drivers/velodyne/params/
