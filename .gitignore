@@ -88,7 +88,9 @@ modules/drivers/gnss/conf/conf_us
 docs/demo_guide/*.bag
 
 # Logs
-cyber/log/*
+cyber/log/
 
 # params file
 modules/drivers/velodyne/params/
+modules/perception/data/params/
+modules/localization/msf/params/
